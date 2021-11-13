@@ -9,6 +9,9 @@ include_once "includes/functions.php";
 $id = 0;
 if (isset($_GET['id']) && !empty($_GET['id'])) {
   $id = $_GET['id'];
+  $title = 'Твиты пользователя @' . $posts[0]['login'];
+} else {
+  $title = 'Все твиты';
 }
 $posts = get_posts($id);
 
