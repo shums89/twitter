@@ -1,6 +1,7 @@
 <?php
 include_once "includes/functions.php";
 $posts = get_posts();
+$error = get_error_message();
 $title = 'Главная страница';
 
 include_once "includes/header.php";
