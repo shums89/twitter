@@ -227,6 +227,10 @@ button {
 	padding: 15px;
 }
 
+.tweet > footer {
+	display: flex;
+}
+
 .tweet-form__wrapper {
 	display: flex;
 }

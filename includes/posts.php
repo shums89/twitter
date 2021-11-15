@@ -27,8 +27,17 @@
               </div>
             </div>
             <footer>
-              <button class="tweet__like">0</button>
-              <!-- tweet__like_active -->
+              <?php
+              $likes_count = get_likes_count($post['id']);
+              if (logged_in()) {
+                if (is_post_liked($post['id'])) { ?>
+                  <a href="<?php echo get_url('includes/delete_like.php?id=' . $post['id']); ?>" class="tweet__like tweet__like_active"><?php echo get_likes_count($post['id']); ?></a>
+                <?php } else { ?>
+                  <a href="<?php echo get_url('includes/add_like.php?id=' . $post['id']); ?>" class="tweet__like"><?php echo get_likes_count($post['id']); ?></a>
+                <?php }
+              } else { ?>
+                <div class="tweet__like"><?php echo get_likes_count($post['id']); ?></div>
+              <?php } ?>
             </footer>
           </article>
         </li>
@@ -37,4 +46,4 @@
   </section>
 <?php } else {
   echo '<h2 class="tweet-form__title">Здесь пока нет твитов ...</h2>';
-}
+} ?>
